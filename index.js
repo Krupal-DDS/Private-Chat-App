@@ -26,7 +26,7 @@ app.post('/new',(req,res)=>{
     let data = {
         username : req.body.username,
         userId: uuidv4()
-    }    
+    }       
     res.send(data); 
 })
 
@@ -89,6 +89,7 @@ const method = {
         PvtMsg.findOneAndUpdate({userToken: token},
             {$push: {messages: data}},(error,response)=>{
                 if(error){
+                    
                     throw error;
                 }else{
                     console.log('Messages saved');
